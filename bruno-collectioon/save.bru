@@ -1,0 +1,21 @@
+meta {
+  name: save
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/ecommerce-app/save
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "productID": 110,
+    "productName": "fitnessbands",
+    "productDesc": "smart fitness band - ofdiff beads",
+    "isAvailable": false,
+    "productPrice": 15000.0
+  }
+}
