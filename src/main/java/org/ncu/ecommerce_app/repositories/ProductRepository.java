@@ -35,25 +35,26 @@ public class ProductRepository {
 
 	// Update an existing product in the database
 	public void updateProduct(Product product) {
-		String queryString = "UPDATE product SET productName = ?, productDesc = ?, available = ?, productPrice = ? WHERE productID = ?";
+		String queryString = "UPDATE product SET product_name = ?, product_desc = ?, is_available = ?, product_price = ? WHERE product_id = ?";
 
-		// Assuming the productID is an Integer and others are String, Boolean, and Double respectively
+		// Prepare the argument array based on the product data
 		Object[] argsObject = {
-				product.getProductName(),
-				product.getProductDesc(),
-				product.isAvailable(),
-				product.getProductPrice(),
-				product.getProductID()
+				product.getProductName(),  // String (product_name)
+				product.getProductDesc(),  // String (product_desc)
+				product.isAvailable() ? 1 : 0,  // boolean (is_available), convert to 1 or 0 for MySQL
+				product.getProductPrice(),  // Double (product_price)
+				product.getProductID()     // Integer (product_id)
 		};
 
-		// Ensure the query is valid and argsObject matches the expected parameter types
 		try {
 			jdbcTemplate.update(queryString, argsObject);
 		} catch (DataAccessException e) {
-			// Handle the exception if an error occurs
+			// Log the error for debugging
 			System.out.println("Error executing update: " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
+
 
 
 	// Delete an existing product by its ID
