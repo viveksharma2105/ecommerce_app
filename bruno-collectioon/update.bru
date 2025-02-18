@@ -5,7 +5,17 @@ meta {
 }
 
 put {
-  url: http://localhost:8080/ecommerce-app/update
-  body: none
+  url: http://localhost:8080/ecommerce-app/update/110
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "productID": 110,
+    "productName": "fitnessbands",
+    "productDesc": "smart fitness band - ofdiff beads",
+    "isAvailable": false,
+    "productPrice": 19000.0
+  }
 }
