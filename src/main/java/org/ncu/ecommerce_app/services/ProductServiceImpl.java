@@ -13,7 +13,7 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 
-	// Sort all products by their ids
+
 	@Override
 	public List<Product> getSoretedProducts() {
 		List<Product> products = productRepository.getAllProducts();
@@ -28,7 +28,6 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public void updateProductById(int id, Product product) {
-		// Set the product ID to match the given ID in case it's changed
 		product.setProductID(id);
 		productRepository.updateProduct(product);
 	}

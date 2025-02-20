@@ -16,6 +16,11 @@ public class Product {
 		this.isAvailable = isAvailable;
 		this.productPrice = productPrice;
 	}
+
+	public Product(){
+
+	}
+
 	public int getProductID() {
 		return productID;
 	}

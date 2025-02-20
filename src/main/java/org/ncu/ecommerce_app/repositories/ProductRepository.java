@@ -2,6 +2,7 @@ package org.ncu.ecommerce_app.repositories;
 
 import java.util.List;
 import org.ncu.ecommerce_app.entities.Product;
+import org.ncu.ecommerce_app.repositories.ProductRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -30,20 +31,20 @@ public class ProductRepository {
 	// Get all products from the database
 	public List<Product> getAllProducts() {
 		String queryString = "SELECT * FROM product";
-		return jdbcTemplate.query(queryString, new BeanPropertyRowMapper<>(Product.class));
+		return jdbcTemplate.query(queryString, new ProductRowMapper());
 	}
 
-	// Update an existing product in the database
+
 	public void updateProduct(Product product) {
 		String queryString = "UPDATE product SET product_name = ?, product_desc = ?, is_available = ?, product_price = ? WHERE product_id = ?";
 
-		// Prepare the argument array based on the product data
+
 		Object[] argsObject = {
-				product.getProductName(),  // String (product_name)
-				product.getProductDesc(),  // String (product_desc)
-				product.isAvailable() ? 1 : 0,  // boolean (is_available), convert to 1 or 0 for MySQL
-				product.getProductPrice(),  // Double (product_price)
-				product.getProductID()     // Integer (product_id)
+				product.getProductName(),
+				product.getProductDesc(),
+				product.isAvailable() ? 1 : 0,
+				product.getProductPrice(),
+				product.getProductID()
 		};
 
 		try {
@@ -57,7 +58,7 @@ public class ProductRepository {
 
 
 
-	// Delete an existing product by its ID
+
 	public boolean deleteProduct(int id) {
 		String queryString = "DELETE FROM product WHERE productID = ?";
 		int rowsAffected = jdbcTemplate.update(queryString, id);
