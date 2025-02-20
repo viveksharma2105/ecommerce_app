@@ -31,7 +31,9 @@ public class ProductRepository {
 	// Get all products from the database
 	public List<Product> getAllProducts() {
 		String queryString = "SELECT * FROM product";
-		return jdbcTemplate.query(queryString, new ProductRowMapper());
+		//return jdbcTemplate.query(queryString, new ProductResultSetExtractor());
+		return jdbcTemplate.query(queryString,new BeanPropertyRowMapper<Product>(Product.class));
+
 	}
 
 
