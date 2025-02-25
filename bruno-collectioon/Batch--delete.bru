@@ -1,0 +1,15 @@
+meta {
+  name: Batch--delete
+  type: http
+  seq: 8
+}
+
+delete {
+  url: http://localhost:8080/ecommerce-app/delete-products
+  body: json
+  auth: none
+}
+
+body:json {
+  [4, 5, 6]
+}

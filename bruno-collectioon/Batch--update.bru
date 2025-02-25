@@ -1,0 +1,37 @@
+meta {
+  name: Batch--update
+  type: http
+  seq: 7
+}
+
+put {
+  url: http://localhost:8080/ecommerce-app/update-products
+  body: json
+  auth: none
+}
+
+body:json {
+  [
+    {
+      "productID": 1,
+      "productName": "Premium Laptop",
+      "productDesc": "High-performance laptop",
+      "available": true,
+      "productPrice": 1299.99
+    },
+    {
+      "productID": 2,
+      "productName": "Premium Smartphone",
+      "productDesc": "Latest smartphone with 256G",
+      "available": true,
+      "productPrice": 899.99
+    },
+    {
+      "productID": 3,
+      "productName": "Premium Tablet",
+      "productDesc": "12-inch tablet with improved",
+      "available": false,
+      "productPrice": 599.99
+    }
+  ]
+}

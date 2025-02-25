@@ -1,0 +1,86 @@
+meta {
+  name: Batch--insert
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:8080/ecommerce-app/save-products
+  body: json
+  auth: none
+}
+
+body:json {
+  [
+      {
+          "productID": 1,
+          "productName": "Laptop",
+          "productDesc": "High-performance laptop with 16GB RAM",
+          "available": true,
+          "productPrice": 999.99
+      },
+      {
+          "productID": 2,
+          "productName": "Smartphone",
+          "productDesc": "Latest smartphone with 128GB storage",
+          "available": true,
+          "productPrice": 699.99
+      },
+      {
+          "productID": 3,
+          "productName": "Tablet",
+          "productDesc": "10-inch tablet with stylus support",
+          "available": true,
+          "productPrice": 499.99
+      },
+      {
+          "productID": 4,
+          "productName": "Headphones",
+          "productDesc": "Noise-cancelling wireless headphones",
+          "available": true,
+          "productPrice": 199.99
+      },
+      {
+          "productID": 5,
+          "productName": "Smart Watch",
+          "productDesc": "Fitness tracking smartwatch",
+          "available": true,
+          "productPrice": 249.99
+      },
+      {
+          "productID": 6,
+          "productName": "Camera",
+          "productDesc": "DSLR camera with 24MP sensor",
+          "available": false,
+          "productPrice": 799.99
+      },
+      {
+          "productID": 7,
+          "productName": "Monitor",
+          "productDesc": "27-inch 4K monitor",
+          "available": true,
+          "productPrice": 349.99
+      },
+      {
+          "productID": 8,
+          "productName": "Gaming Console",
+          "productDesc": "Latest gaming console with 1TB storage",
+          "available": true,
+          "productPrice": 499.99
+      },
+      {
+          "productID": 9,
+          "productName": "Wireless Mouse",
+          "productDesc": "Ergonomic wireless mouse",
+          "available": true,
+          "productPrice": 49.99
+      },
+      {
+          "productID": 10,
+          "productName": "Bluetooth Speaker",
+          "productDesc": "Portable waterproof Bluetooth speaker",
+          "available": true,
+          "productPrice": 79.99
+      }
+  ]
+}

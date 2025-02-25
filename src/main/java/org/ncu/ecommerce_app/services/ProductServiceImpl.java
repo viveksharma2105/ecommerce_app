@@ -13,7 +13,6 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 
-
 	@Override
 	public List<Product> getSoretedProducts() {
 		List<Product> products = productRepository.getAllProducts();
@@ -35,5 +34,25 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public void deleteProductByid(int id) {
 		productRepository.deleteProduct(id);
+	}
+
+	@Override
+	public void batchInsert(List<Product> productList) {
+		productRepository.batchInsertProducts(productList);
+	}
+
+	@Override
+	public void batchUpdateById(List<Product> updateProducts) {
+		productRepository.batchUpdateProducts(updateProducts);
+	}
+
+	@Override
+	public void batchDeleteById(List<Integer> productIds) {
+		productRepository.batchDeleteProducts(productIds);
+	}
+
+	@Override
+	public Product getProductById(int id) {
+		return productRepository.getProductById(id);
 	}
 }
